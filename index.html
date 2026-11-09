@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -44,7 +44,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-                img {
+        img {
             max-width: 100%;
             height: 100%;
             width: 100%;
@@ -192,15 +192,6 @@
             align-items: center;
             gap: 12px;
             z-index: 1001;
-        }
-
-        .logo img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-            background-color: #fff;
-            padding: 4px;
-            border-radius: 2px;
         }
 
         .logo-text {
@@ -396,64 +387,29 @@
             animation: fadeInUp 0.8s ease forwards 0.8s;
         }
 
-                        /* ========================================
-           HERO DECOR: YOUR STYLE. YOUR RULES.
-           ======================================== */
+        /* Hero Decor Quote */
         .hero-decor {
+            margin-top: 30px;
             opacity: 0;
             animation: fadeIn 1s ease forwards 1.2s;
         }
 
         .hero-decor p {
-            font-family: var(--font-heading);
+            font-family: 'Playfair Display', 'Cormorant Garamond', serif;
             font-size: 1.5rem;
-            color: var(--gold) !important; /* Строго золотой, гарантированно не сливается с фоном */
-            letter-spacing: 0.1em;
+            color: #C5A15B !important;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
             line-height: 1.2;
         }
 
-        /* ДЕСКТОП (от 769px): классическое расположение справа внизу */
         @media (min-width: 769px) {
             .hero-decor {
                 position: absolute;
                 bottom: 40px;
                 right: 40px;
                 text-align: right;
-            }
-        }
-
-        /* МОБИЛЬНАЯ ВЕРСИЯ (до 768px): в потоке, по центру под кнопками */
-        @media (max-width: 768px) {
-            .hero-decor {
-                position: relative; /* Не перекрывает другие элементы */
-                bottom: auto;
-                right: auto;
-                text-align: center;
-                margin-top: 30px; /* Отступ сверху от кнопок */
-                width: 100%;
-                display: block !important; /* Гарантированно отменяем любое скрытие */
-            }
-
-            .hero-decor p {
-                font-size: 1.1rem;
-                letter-spacing: 0.15em;
-            }
-        }
-
-        /* МОБИЛЬНАЯ ВЕРСИЯ (до 768px): по центру под кнопками, без наложений */
-        @media (max-width: 768px) {
-            .hero-decor {
-                position: relative; /* Возвращаем в поток документа, чтобы не было наложений */
-                bottom: auto;
-                right: auto;
-                text-align: center;
-                margin-top: 32px; /* Безопасный отступ от кнопок */
-                width: 100%;
-            }
-
-            .hero-decor p {
-                font-size: 1.1rem; /* Оптимальный размер для мобильных */
-                letter-spacing: 0.15em;
+                margin-top: 0;
             }
         }
 
@@ -505,7 +461,7 @@
             align-items: center;
         }
 
-                .about-image {
+        .about-image {
             position: relative;
             width: 100%;
             aspect-ratio: 3 / 4;
@@ -761,7 +717,7 @@
             align-items: center;
         }
 
-                .atmosphere-image {
+        .atmosphere-image {
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -800,7 +756,7 @@
         }
 
         /* Gallery */
-                .gallery-grid {
+        .gallery-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
@@ -866,6 +822,7 @@
             font-size: 0.85rem;
             color: var(--text-primary);
         }
+
         /* Lightbox */
         .lightbox {
             position: fixed;
@@ -956,7 +913,6 @@
             margin-top: 16px;
         }
 
-                        /* CONTACTS: Фотографии здания и улицы */
         .contacts-images {
             display: grid;
             grid-template-columns: 1fr;
@@ -993,17 +949,12 @@
             transform: scale(1.05);
         }
 
-        /* На мобильных устройствах фото на всю ширину */
         @media (max-width: 767px) {
             .contact-img-wrapper {
                 aspect-ratio: 16 / 10;
                 min-height: 250px;
                 max-height: 400px;
             }
-        }
-
-        .contact-img-wrapper:hover img {
-            transform: scale(1.05);
         }
 
         /* Footer */
@@ -1131,7 +1082,9 @@
             transform: translateY(0);
         }
 
-        /* Media Queries */
+        /* ========================================
+           DESKTOP MEDIA QUERIES
+           ======================================== */
         @media (min-width: 768px) {
             .nav-desktop {
                 display: block;
@@ -1183,24 +1136,10 @@
             }
         }
 
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
-        }
-                /* ========================================
-           МОБИЛЬНАЯ ВЕРСИЯ (до 768px)
+        /* ========================================
+           МОБИЛЬНАЯ ВЕРСИЯ (до 768px) - ЕДИНЫЙ ЧИСТЫЙ БЛОК
            ======================================== */
         @media (max-width: 768px) {
-            
             /* 1. ШАПКА: предотвращаем наложение элементов */
             .header {
                 padding: 12px 0;
@@ -1241,16 +1180,17 @@
                 padding: 8px;
             }
 
-            /* 5. HERO: отступы и размеры */
+            /* 2. HERO: 100% ширины, отступ 120px, кнопки вертикально */
             .hero {
                 min-height: 100vh;
                 max-height: none;
             }
 
             .hero-content {
-                padding-top: 100px; /* Отступ от фиксированной шапки, чтобы текст не прилипал */
+                padding-top: 120px; /* Предотвращает налипание на шапку */
                 padding-bottom: 40px;
                 max-width: 100%;
+                width: 100%;
             }
 
             .hero-title {
@@ -1263,7 +1203,6 @@
                 margin-bottom: 32px;
             }
 
-            /* 2. КНОПКИ HERO: строго вертикально, 100% ширины */
             .hero-actions {
                 flex-direction: column;
                 width: 100%;
@@ -1277,14 +1216,25 @@
                 text-align: center;
             }
 
-            /* 3. Текст SCROLL: скрываем, чтобы не наезжал на кнопки */
+            /* Цитата видна, по центру, под кнопками */
+            .hero-decor {
+                position: relative;
+                text-align: center;
+                margin-top: 30px;
+                width: 100%;
+            }
+
+            .hero-decor p {
+                font-size: 1.1rem;
+                letter-spacing: 0.15em;
+            }
+
+            /* Скрываем индикатор прокрутки, чтобы не мешал */
             .scroll-indicator {
                 display: none;
             }
 
-            
-
-            /* Общие отступы секций на мобильных */
+            /* Общие отступы секций */
             .section-padding {
                 padding: 60px 0;
             }
@@ -1293,7 +1243,7 @@
                 padding: 0 20px;
             }
 
-            /* ABOUT: в одну колонку */
+            /* ABOUT */
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -1305,10 +1255,10 @@
             }
 
             .about-image::after {
-                display: none; /* Убираем декоративную рамку на мобильных */
+                display: none;
             }
 
-            /* MASTERS: 2 колонки вместо 5 для компактности */
+            /* MASTERS */
             .masters-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
@@ -1326,7 +1276,7 @@
                 font-size: 1.4rem;
             }
 
-            /* SERVICES: в одну колонку, убираем точки-разделители */
+            /* SERVICES */
             .services-wrapper {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -1357,7 +1307,7 @@
                 text-align: right;
             }
 
-            /* WHY: в одну колонку */
+            /* WHY */
             .why-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
@@ -1376,7 +1326,7 @@
                 font-size: 1.5rem;
             }
 
-            /* ATMOSPHERE: в одну колонку */
+            /* ATMOSPHERE */
             .atmosphere-layout {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -1397,7 +1347,7 @@
                 margin-top: 24px;
             }
 
-            /* GALLERY: карточка на всю ширину */
+            /* GALLERY */
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
@@ -1406,7 +1356,7 @@
                 max-width: 100%;
             }
 
-            /* CONTACTS: в одну колонку, кнопки на всю ширину */
+            /* CONTACTS */
             .contacts-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -1426,7 +1376,13 @@
                 width: 100%;
             }
 
-            /* FOOTER: в одну колонку */
+            .contact-img-wrapper {
+                aspect-ratio: 16 / 10;
+                min-height: 250px;
+                max-height: 400px;
+            }
+
+            /* FOOTER */
             .footer {
                 padding: 60px 0 30px;
             }
@@ -1443,12 +1399,26 @@
                 text-align: center;
             }
 
-            /* BACK TO TOP: уменьшаем размер для мобильных */
+            /* BACK TO TOP */
             .back-to-top {
                 bottom: 20px;
                 right: 20px;
                 width: 44px;
                 height: 44px;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
@@ -1508,13 +1478,12 @@
                 <p class="hero-subtitle">Место, где мужской стиль становится искусством. Профессиональные мастера, внимание к деталям и атмосфера, в которую хочется возвращаться.</p>
                 <div class="hero-actions">
                     <a href="https://n1131400.yclients.com/select-city/133/select-branch" target="_blank" class="btn btn-primary">Записаться на стрижку</a>
-
-
                     <a href="#services" class="btn">Посмотреть услуги</a>
                 </div>
-            </div>
-            <div class="hero-decor">
-                <p>YOUR STYLE.<br>YOUR RULES.</p>
+                <!-- Цитата перенесена строго под кнопки -->
+                <div class="hero-decor">
+                    <p>YOUR STYLE.<br>YOUR RULES.</p>
+                </div>
             </div>
             <div class="scroll-indicator">
                 <span>Scroll</span>
@@ -1717,7 +1686,7 @@
             </div>
         </section>
 
-                <!-- Gallery -->
+        <!-- Gallery -->
         <section class="section-padding" id="gallery" style="background-color: var(--bg-secondary);">
             <div class="container">
                 <div class="reveal" style="text-align: center; margin-bottom: 48px;">
@@ -1943,4 +1912,3 @@
     </script>
 </body>
 </html>
-```
