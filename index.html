@@ -1421,6 +1421,37 @@
                 transform: none;
             }
         }
+        /* --- ФИНАЛЬНЫЙ ФИКС ДЛЯ МОБИЛЬНЫХ --- */
+@media (max-width: 768px) {
+    /* 1. Отодвигаем надпись IRKUTSK вниз от шапки */
+    .hero-section, .hero { 
+        padding-top: 130px !important; 
+    }
+
+    /* 2. Расширяем текст на всю ширину экрана, чтобы не была узкая колонка */
+    .hero-content, .container, .hero-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Чуть уменьшаем заголовок, чтобы влезал нормально */
+    .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    /* 4. Возвращаем цитату на место (под кнопки) */
+    [class*="rules"], .your-rules {
+        display: block !important;
+        position: static !important;
+        margin-top: 30px !important;
+        text-align: left !important;
+        color: #C5A15B !important;
+        font-size: 1rem !important;
+    }
+}
     </style>
 </head>
 <body>
