@@ -1,0 +1,1646 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BROMAN — премиальный мужской барбершоп в Иркутске. Профессиональные мастера, внимание к деталям и атмосфера мужского клуба. Запись на стрижку и бритье.">
+    <title>BROMAN — Премиальный барбершоп в Иркутске</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0A0A0A;
+            --bg-secondary: #141414;
+            --bg-card: #1B1B1B;
+            --graphite: #292929;
+            --gold: #C5A15B;
+            --copper: #A66B45;
+            --text-primary: #F3F0EA;
+            --text-secondary: #A6A6A6;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Manrope', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+                img {
+            max-width: 100%;
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            background-color: #fff;
+            padding: 4px;
+            border-radius: 2px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .gold-text {
+            color: var(--gold);
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--gold);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--bg-primary);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary::before {
+            background-color: var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            color: var(--bg-primary);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .header.scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(197, 161, 91, 0.2);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1001;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            background-color: #fff;
+            padding: 4px;
+            border-radius: 2px;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .nav-desktop {
+            display: none;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-desktop a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-desktop a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-desktop a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-phone {
+            display: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-primary);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-primary);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            max-height: 800px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            filter: brightness(0.4);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding-top: 80px;
+        }
+
+        .hero-label {
+            color: var(--gold);
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 48px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.8s;
+        }
+
+        .hero-decor {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            z-index: 2;
+            text-align: right;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.2s;
+        }
+
+        .hero-decor p {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.5s;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background-color: var(--graphite);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--gold);
+            animation: scrollDown 2s ease-in-out infinite;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+                .about-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            max-height: 600px;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .about-image img {
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.6s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 1px solid var(--gold);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        .advantages-list {
+            display: grid;
+            gap: 24px;
+        }
+
+        .advantage-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .advantage-number {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .advantage-content h4 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .advantage-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Masters */
+        .masters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .master-card {
+            background-color: var(--bg-card);
+            padding: 40px 24px;
+            text-align: center;
+            border: 1px solid var(--graphite);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .master-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .master-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .master-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .master-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--graphite);
+            line-height: 1;
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+
+        .master-card:hover .master-number {
+            color: var(--gold);
+        }
+
+        .master-name {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+        }
+
+        .master-role {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+        }
+
+        /* Services */
+        .services-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        .price-list {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border: 1px solid var(--graphite);
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--graphite);
+            transition: var(--transition);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-item:hover {
+            padding-left: 10px;
+            border-bottom-color: var(--gold);
+        }
+
+        .price-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .price-dots {
+            flex: 1;
+            border-bottom: 1px dotted var(--graphite);
+            margin: 0 16px;
+            position: relative;
+            top: -4px;
+        }
+
+        .price-value {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        /* Advantages (Why Broman) */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .why-card {
+            background-color: var(--bg-secondary);
+            padding: 40px 32px;
+            border-left: 2px solid var(--graphite);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            border-left-color: var(--gold);
+            background-color: var(--bg-card);
+        }
+
+        .why-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-family: var(--font-heading);
+            font-style: italic;
+        }
+
+        .why-card h3 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .why-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .gift-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--graphite) 100%);
+            border: 1px solid var(--gold);
+            text-align: center;
+            padding: 48px 32px;
+            margin-top: 24px;
+        }
+
+        .gift-card h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--gold);
+        }
+
+        .gift-card p {
+            max-width: 600px;
+            margin: 0 auto 32px;
+            color: var(--text-secondary);
+        }
+
+        /* Atmosphere */
+        .atmosphere-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+                .atmosphere-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            max-height: 500px;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .atmosphere-image img {
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .atmosphere-text {
+            padding: 20px;
+        }
+
+        .atmosphere-text h2 {
+            margin-bottom: 32px;
+        }
+
+        .atmosphere-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .brand-signature {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: var(--graphite);
+            line-height: 1;
+            text-align: right;
+            opacity: 0.5;
+        }
+
+        /* Gallery */
+                .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            justify-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        .gallery-card {
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            border-radius: 2px;
+            border: 1px solid var(--graphite);
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .gallery-card img {
+            object-fit: cover;
+            object-position: center 20%;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            border: 1px solid var(--text-primary);
+            padding: 12px 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 10, 0.95);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--gold);
+            transform: rotate(90deg);
+        }
+
+        /* Contacts */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        .contacts-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .contact-item h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .contact-item a, .contact-item p {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+                        /* CONTACTS: Фотографии здания и улицы */
+        .contacts-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .contacts-images {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        .contact-img-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            min-height: 300px;
+            max-height: 500px;
+            overflow: hidden;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .contact-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.6s ease;
+        }
+
+        .contact-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        /* На мобильных устройствах фото на всю ширину */
+        @media (max-width: 767px) {
+            .contact-img-wrapper {
+                aspect-ratio: 16 / 10;
+                min-height: 250px;
+                max-height: 400px;
+            }
+        }
+
+        .contact-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #050505;
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--graphite);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo-text {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-nav a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-nav a:hover {
+            color: var(--gold);
+            padding-left: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--graphite);
+            padding-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .footer-signature {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            z-index: 900;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--gold);
+            color: var(--bg-primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scrollDown {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .nav-desktop {
+                display: block;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .header-phone {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services-wrapper {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
+
+            .atmosphere-layout {
+                grid-template-columns: 1.2fr 1fr;
+            }
+
+            .contacts-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contacts-images {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masters-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo" aria-label="BROMAN Главная">
+                <img src="logo.jpg" alt="BROMAN Логотип">
+                <span class="logo-text">BROMAN</span>
+            </a>
+            
+            <nav class="nav-desktop" aria-label="Основная навигация">
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#masters">Мастера</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#atmosphere">Атмосфера</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="tel:+79526318228" class="header-phone" aria-label="Позвонить">+7 952 631-82-28</a>
+                <a href="#contacts" class="btn btn-primary" style="padding: 12px 24px; font-size: 0.8rem;">Записаться</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="mobile-link">О нас</a>
+        <a href="#masters" class="mobile-link">Мастера</a>
+        <a href="#services" class="mobile-link">Услуги</a>
+        <a href="#atmosphere" class="mobile-link">Атмосфера</a>
+        <a href="#contacts" class="mobile-link">Контакты</a>
+        <a href="tel:+79526318228" class="btn btn-primary" style="margin-top: 20px;">Позвонить</a>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <div class="hero-bg">
+                <img src="fasad.jpg" alt="Фасад барбершопа BROMAN">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <p class="uppercase hero-label">Irkutsk · Premium Barbershop</p>
+                <h1 class="hero-title">Барбершоп премиум-класса в Иркутске</h1>
+                <p class="hero-subtitle">Место, где мужской стиль становится искусством. Профессиональные мастера, внимание к деталям и атмосфера, в которую хочется возвращаться.</p>
+                <div class="hero-actions">
+                    <a href="#contacts" class="btn btn-primary">Записаться на стрижку</a>
+                    <a href="#services" class="btn">Посмотреть услуги</a>
+                </div>
+            </div>
+            <div class="hero-decor">
+                <p>YOUR STYLE.<br>YOUR RULES.</p>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section-padding" id="about">
+            <div class="container">
+                <div class="about-grid reveal">
+                    <div class="about-image">
+                        <img src="master.jpg" alt="Мастер барбершопа BROMAN за работой">
+                    </div>
+                    <div class="about-text">
+                        <p class="uppercase gold-text" style="margin-bottom: 16px;">О барбершопе</p>
+                        <h2>Больше, чем просто стрижка</h2>
+                        <p>BROMAN — пространство мужского стиля в Иркутске. Здесь встречаются профессионализм мастеров, внимание к каждой детали и особая атмосфера, ради которой хочется возвращаться.</p>
+                        <p>Мы ценим индивидуальность каждого клиента и понимаем, что хороший образ начинается с правильного подхода.</p>
+                        
+                        <div class="advantages-list" style="margin-top: 40px;">
+                            <div class="advantage-item">
+                                <span class="advantage-number">01</span>
+                                <div class="advantage-content">
+                                    <h4>Профессионализм</h4>
+                                    <p>Мастера, которые знают своё дело и постоянно совершенствуют навыки.</p>
+                                </div>
+                            </div>
+                            <div class="advantage-item">
+                                <span class="advantage-number">02</span>
+                                <div class="advantage-content">
+                                    <h4>Индивидуальность</h4>
+                                    <p>Подбираем образ с учётом ваших пожеланий и особенностей внешности.</p>
+                                </div>
+                            </div>
+                            <div class="advantage-item">
+                                <span class="advantage-number">03</span>
+                                <div class="advantage-content">
+                                    <h4>Качество</h4>
+                                    <p>Внимание к деталям и премиальные средства ухода на каждом этапе.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Masters -->
+        <section class="section-padding" id="masters" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+                    <p class="uppercase gold-text" style="margin-bottom: 16px;">Команда</p>
+                    <h2>Люди, которым доверяют свой стиль</h2>
+                    <p class="section-subtitle" style="margin: 0 auto;">За каждым отличным образом стоит профессионал</p>
+                </div>
+                
+                <div class="masters-grid reveal">
+                    <div class="master-card">
+                        <div class="master-number">01</div>
+                        <h3 class="master-name">Александр</h3>
+                        <p class="master-role">Мастер барбершопа</p>
+                    </div>
+                    <div class="master-card">
+                        <div class="master-number">02</div>
+                        <h3 class="master-name">Екатерина</h3>
+                        <p class="master-role">Мастер барбершопа</p>
+                    </div>
+                    <div class="master-card">
+                        <div class="master-number">03</div>
+                        <h3 class="master-name">Максим</h3>
+                        <p class="master-role">Мастер барбершопа</p>
+                    </div>
+                    <div class="master-card">
+                        <div class="master-number">04</div>
+                        <h3 class="master-name">Евгения</h3>
+                        <p class="master-role">Мастер барбершопа</p>
+                    </div>
+                    <div class="master-card">
+                        <div class="master-number">05</div>
+                        <h3 class="master-name">Татьяна</h3>
+                        <p class="master-role">Мастер барбершопа</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="section-padding" id="services">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 60px;">
+                    <p class="uppercase gold-text" style="margin-bottom: 16px;">Прайс-лист</p>
+                    <h2>Услуги и стоимость</h2>
+                    <p class="section-subtitle">Профессиональный уход за вашим стилем</p>
+                </div>
+
+                <div class="services-wrapper reveal">
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="price-name">Мужская стрижка</span>
+                            <span class="price-dots"></span>
+                            <span class="price-value">2 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Стрижка машинкой</span>
+                            <span class="price-dots"></span>
+                            <span class="price-value">1 200–1 500 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Моделирование бороды</span>
+                            <span class="price-dots"></span>
+                            <span class="price-value">1 300 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Бритьё</span>
+                            <span class="price-dots"></span>
+                            <span class="price-value">1 300 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Камуфляж седины</span>
+                            <span class="price-dots"></span>
+                            <span class="price-value">1 200 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Мужской маникюр</span>
+                            <span class="price-dots"></span>
+                            <span class="price-value">1 200–2 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Педикюр</span>
+                            <span class="price-dots"></span>
+                            <span class="price-value">2 000–2 800 ₽</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 24px;">
+                        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+                            Мы используем только профессиональную косметику премиум-класса. Каждая услуга включает консультацию мастера, подбор стиля и безупречное исполнение.
+                        </p>
+                        <a href="#contacts" class="btn btn-primary">Записаться на услугу</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Broman -->
+        <section class="section-padding" id="advantages" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+                    <p class="uppercase gold-text" style="margin-bottom: 16px;">Преимущества</p>
+                    <h2>Комфорт в каждой детали</h2>
+                    <p class="section-subtitle" style="margin: 0 auto;">Мы создаём не просто услугу, а впечатление от посещения</p>
+                </div>
+
+                <div class="why-grid reveal">
+                    <div class="why-card">
+                        <div class="why-icon">01.</div>
+                        <h3>Кофе</h3>
+                        <p>Ароматный кофе для приятного начала или завершения визита.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">02.</div>
+                        <h3>Wi-Fi</h3>
+                        <p>Оставайтесь на связи, пока мы работаем над вашим образом.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">03.</div>
+                        <h3>Парковка</h3>
+                        <p>Удобство начинается ещё до входа в барбершоп.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">04.</div>
+                        <h3>Подарочные сертификаты</h3>
+                        <p>Подарите близкому человеку возможность выбрать свой стиль.</p>
+                    </div>
+                    
+                    <div class="gift-card">
+                        <h3>Подарочные сертификаты BROMAN</h3>
+                        <p>Идеальный подарок для мужчины, который ценит стиль и качество. Доступны различные номиналы.</p>
+                        <a href="#contacts" class="btn">Узнать о сертификатах</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atmosphere -->
+        <section class="section-padding" id="atmosphere">
+            <div class="container">
+                <div class="atmosphere-layout reveal">
+                    <div class="atmosphere-image">
+                        <img src="interior.jpg" alt="Интерьер барбершопа BROMAN">
+                    </div>
+                    <div class="atmosphere-text">
+                        <p class="uppercase gold-text" style="margin-bottom: 16px;">Интерьер</p>
+                        <h2>Территория мужского стиля</h2>
+                        <p>Детали создают атмосферу. Дерево, зеркала, профессиональные инструменты и люди, которые любят своё дело. BROMAN — место, где можно переключиться от повседневной суеты и уделить время себе.</p>
+                        <div class="brand-signature">BROMAN</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Gallery -->
+        <section class="section-padding" id="gallery" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <div class="reveal" style="text-align: center; margin-bottom: 48px;">
+                    <p class="uppercase gold-text" style="margin-bottom: 16px;">Работы</p>
+                    <h2>Стиль говорит сам за себя</h2>
+                    <p class="section-subtitle" style="margin: 0 auto;">Результат, который не нуждается в лишних словах</p>
+                </div>
+                
+                <div class="gallery-grid reveal">
+                    <div class="gallery-card" id="galleryTrigger" role="button" tabindex="0" aria-label="Открыть фотографию в полном размере">
+                        <img src="client.jpg" alt="Клиент барбершопа BROMAN с модной стрижкой">
+                        <div class="gallery-overlay">
+                            <span>Смотреть</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacts -->
+        <section class="section-padding" id="contacts" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 60px;">
+                    <p class="uppercase gold-text" style="margin-bottom: 16px;">Контакты</p>
+                    <h2>Мы ждём вас в BROMAN</h2>
+                    <p class="section-subtitle">Ваш новый образ начинается с одного звонка</p>
+                </div>
+
+                <div class="contacts-grid reveal">
+                    <div class="contacts-info">
+                        <div class="contact-item">
+                            <h4>Телефон</h4>
+                            <a href="tel:+79526318228">+7 952 631-82-28</a>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Город</h4>
+                            <p>г. Иркутск, ул. Седова, 34А</p>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="tel:+79526318228" class="btn btn-primary">Позвонить</a>
+                            <a href="https://wa.me/79526318228" target="_blank" rel="noopener noreferrer" class="btn">Написать в WhatsApp</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contacts-images">
+                        <div class="contact-img-wrapper">
+                            <img src="street.jpg" alt="Здание барбершопа BROMAN с улицы">
+                        </div>
+                        <div class="contact-img-wrapper">
+                            <img src="fasad.jpg" alt="Фасад барбершопа BROMAN">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">BROMAN</span>
+                    <p>PREMIUM BARBERSHOP · IRKUTSK</p>
+                    <p style="margin-top: 16px; color: var(--gold);">+7 952 631-82-28</p>
+                </div>
+                <nav class="footer-nav" aria-label="Навигация в подвале">
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#masters">Мастера</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="https://wa.me/79526318228" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        <li><a href="tel:+79526318228">Позвонить</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© BROMAN 2026. Все права защищены.</p>
+                <p class="footer-signature">YOUR STYLE. YOUR RULES.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть просмотр">&times;</button>
+        <img src="client.jpg" alt="Увеличенное фото работы барбершопа">
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Вернуться наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            };
+            
+            window.addEventListener('scroll', handleScroll, { passive: true });
+
+            // Back to top
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Mobile menu
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            const toggleMenu = () => {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = isExpanded ? '' : 'hidden';
+            };
+            
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Intersection Observer for reveal animations
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // Lightbox
+            const galleryTrigger = document.getElementById('galleryTrigger');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxClose = document.getElementById('lightboxClose');
+            
+            const openLightbox = () => {
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+            
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            
+            galleryTrigger.addEventListener('click', openLightbox);
+            galleryTrigger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox();
+                }
+            });
+            
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+
+            // Smooth scroll for anchor links (fallback for older browsers)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```
