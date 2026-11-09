@@ -396,7 +396,9 @@
             animation: fadeInUp 0.8s ease forwards 0.8s;
         }
 
-                /* Базовые стили и анимация появления */
+                        /* ========================================
+           HERO DECOR: YOUR STYLE. YOUR RULES.
+           ======================================== */
         .hero-decor {
             opacity: 0;
             animation: fadeIn 1s ease forwards 1.2s;
@@ -405,7 +407,7 @@
         .hero-decor p {
             font-family: var(--font-heading);
             font-size: 1.5rem;
-            color: var(--gold);
+            color: var(--gold) !important; /* Строго золотой, гарантированно не сливается с фоном */
             letter-spacing: 0.1em;
             line-height: 1.2;
         }
@@ -417,6 +419,24 @@
                 bottom: 40px;
                 right: 40px;
                 text-align: right;
+            }
+        }
+
+        /* МОБИЛЬНАЯ ВЕРСИЯ (до 768px): в потоке, по центру под кнопками */
+        @media (max-width: 768px) {
+            .hero-decor {
+                position: relative; /* Не перекрывает другие элементы */
+                bottom: auto;
+                right: auto;
+                text-align: center;
+                margin-top: 30px; /* Отступ сверху от кнопок */
+                width: 100%;
+                display: block !important; /* Гарантированно отменяем любое скрытие */
+            }
+
+            .hero-decor p {
+                font-size: 1.1rem;
+                letter-spacing: 0.15em;
             }
         }
 
@@ -1262,18 +1282,7 @@
                 display: none;
             }
 
-           /* 4. Текст YOUR STYLE: возвращаем, но ставим аккуратно под кнопками */
-.hero-decor {
-    display: block !important;
-    position: relative !important;
-    margin-top: 40px !important;
-    text-align: center !important;
-    width: 100% !important;
-}
-
-.hero-decor p {
-    font-size: 1.2rem !important;
-}
+            
 
             /* Общие отступы секций на мобильных */
             .section-padding {
