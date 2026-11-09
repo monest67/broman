@@ -396,12 +396,8 @@
             animation: fadeInUp 0.8s ease forwards 0.8s;
         }
 
+                /* Базовые стили и анимация появления */
         .hero-decor {
-            position: absolute;
-            bottom: 40px;
-            right: 40px;
-            z-index: 2;
-            text-align: right;
             opacity: 0;
             animation: fadeIn 1s ease forwards 1.2s;
         }
@@ -411,6 +407,34 @@
             font-size: 1.5rem;
             color: var(--gold);
             letter-spacing: 0.1em;
+            line-height: 1.2;
+        }
+
+        /* ДЕСКТОП (от 769px): классическое расположение справа внизу */
+        @media (min-width: 769px) {
+            .hero-decor {
+                position: absolute;
+                bottom: 40px;
+                right: 40px;
+                text-align: right;
+            }
+        }
+
+        /* МОБИЛЬНАЯ ВЕРСИЯ (до 768px): по центру под кнопками, без наложений */
+        @media (max-width: 768px) {
+            .hero-decor {
+                position: relative; /* Возвращаем в поток документа, чтобы не было наложений */
+                bottom: auto;
+                right: auto;
+                text-align: center;
+                margin-top: 32px; /* Безопасный отступ от кнопок */
+                width: 100%;
+            }
+
+            .hero-decor p {
+                font-size: 1.1rem; /* Оптимальный размер для мобильных */
+                letter-spacing: 0.15em;
+            }
         }
 
         .scroll-indicator {
