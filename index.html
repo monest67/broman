@@ -1262,10 +1262,18 @@
                 display: none;
             }
 
-            /* 4. Текст YOUR STYLE: скрываем, чтобы не перекрывал контент */
-            .hero-decor {
-                display: none;
-            }
+           /* 4. Текст YOUR STYLE: возвращаем, но ставим аккуратно под кнопками */
+.hero-decor {
+    display: block !important;
+    position: relative !important;
+    margin-top: 40px !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.hero-decor p {
+    font-size: 1.2rem !important;
+}
 
             /* Общие отступы секций на мобильных */
             .section-padding {
